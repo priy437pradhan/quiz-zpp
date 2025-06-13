@@ -1,124 +1,124 @@
 import React, { useState, useEffect } from "react";
 const questions = [
   {
-    question: "How many moles are present in 11.2 L of methane gas at STP?",
-    options: ["0.25", "0.5", "1", "2"],
-    answer: "0.5",
-    solution: "At STP, 22.4 L = 1 mole. So, 11.2 ÷ 22.4 = 0.5 mole."
+    question: "What is a defining feature of eukaryotic cells?",
+    options: ["Lack of nucleus", "Presence of nucleus", "Circular DNA", "No membrane-bound organelles"],
+    answer: "Presence of nucleus",
+    solution: "Eukaryotic cells are characterized by a true nucleus enclosed within a nuclear membrane."
   },
   {
-    question: "What is the molar mass of H₂SO₄?",
-    options: ["98 g/mol", "96 g/mol", "100 g/mol", "102 g/mol"],
-    answer: "98 g/mol",
-    solution: "H₂ (2) + S (32) + O₄ (64) = 98 g/mol."
+    question: "Which of the following is not found in eukaryotic cells?",
+    options: ["Mitochondria", "Golgi apparatus", "Plasmid", "Endoplasmic reticulum"],
+    answer: "Plasmid",
+    solution: "Plasmids are typically found in prokaryotes, not eukaryotic cells."
   },
   {
-    question: "How many moles of oxygen atoms are present in 1 mole of H₂O?",
-    options: ["1", "2", "3", "0.5"],
-    answer: "1",
-    solution: "Each H₂O molecule has 1 oxygen atom → 1 mole H₂O = 1 mole O atoms."
+    question: "Which organelle is known as the 'powerhouse of the cell'?",
+    options: ["Nucleus", "Ribosome", "Mitochondria", "Lysosome"],
+    answer: "Mitochondria",
+    solution: "Mitochondria generate most of the cell's ATP through respiration."
   },
   {
-    question: "Mass of 1 atom of carbon-12 is:",
-    options: ["12 g", "1 g", "12 amu", "1.99 × 10⁻²³ g"],
-    answer: "1.99 × 10⁻²³ g",
-    solution: "12 g/mol ÷ Avogadro’s number = 1.99 × 10⁻²³ g."
+    question: "The plasma membrane is primarily composed of:",
+    options: ["Proteins and sugars", "Phospholipids and proteins", "Carbohydrates and DNA", "Cholesterol and nucleic acids"],
+    answer: "Phospholipids and proteins",
+    solution: "The plasma membrane consists mainly of a phospholipid bilayer embedded with proteins."
   },
   {
-    question: "Calculate number of molecules in 9g of water.",
-    options: ["3.011 × 10²³", "6.022 × 10²³", "1.204 × 10²³", "4.5 × 10²²"],
-    answer: "3.011 × 10²³",
-    solution: "9g = 0.5 mol; 0.5 × 6.022 × 10²³ = 3.011 × 10²³ molecules."
+    question: "Which molecule helps maintain fluidity of the cell membrane?",
+    options: ["Glucose", "Cholesterol", "DNA", "ATP"],
+    answer: "Cholesterol",
+    solution: "Cholesterol is interspersed within the membrane to prevent rigidity at low temperatures."
   },
   {
-    question: "Which of the following contains maximum number of atoms?",
-    options: ["1 mole of CO₂", "1 mole of H₂", "1 mole of CH₄", "1 mole of C₆H₆"],
-    answer: "1 mole of C₆H₆",
-    solution: "C₆H₆ has 12 atoms per molecule × Avogadro’s number."
+    question: "Which organelle is responsible for packaging and modifying proteins?",
+    options: ["Nucleus", "Ribosome", "Golgi apparatus", "Mitochondria"],
+    answer: "Golgi apparatus",
+    solution: "The Golgi apparatus modifies, sorts, and packages proteins for secretion or use inside the cell."
   },
   {
-    question: "Volume occupied by 3.01 × 10²³ molecules of N₂ at STP is:",
-    options: ["11.2 L", "22.4 L", "5.6 L", "33.6 L"],
-    answer: "11.2 L",
-    solution: "3.01 × 10²³ = 0.5 mole → 0.5 × 22.4 = 11.2 L."
+    question: "Which structure is found in plant cells but not in animal cells?",
+    options: ["Lysosomes", "Mitochondria", "Cell wall", "Ribosomes"],
+    answer: "Cell wall",
+    solution: "Plant cells have a rigid cell wall made of cellulose, absent in animal cells."
   },
   {
-    question: "What is the number of atoms in 18 g of glucose (C₆H₁₂O₆)?",
-    options: ["6.022 × 10²³", "1.204 × 10²⁴", "1.204 × 10²⁵", "6.022 × 10²⁴"],
-    answer: "1.204 × 10²⁵",
-    solution: "1 mole of glucose = 24 atoms per molecule → 0.1 mole = 0.1 × 24 × 6.022×10²³ = 1.204 × 10²⁵."
+    question: "Which process allows oxygen to passively cross the plasma membrane?",
+    options: ["Osmosis", "Active transport", "Facilitated diffusion", "Simple diffusion"],
+    answer: "Simple diffusion",
+    solution: "Oxygen diffuses directly through the phospholipid bilayer down its concentration gradient."
   },
   {
-    question: "Calculate moles in 12.04 × 10²³ atoms of Mg.",
-    options: ["1", "2", "3", "0.5"],
-    answer: "2",
-    solution: "12.04 × 10²³ ÷ 6.022 × 10²³ = 2 moles."
+    question: "Which part of the cell is semi-permeable and controls entry and exit of substances?",
+    options: ["Nuclear membrane", "Cell wall", "Plasma membrane", "Cytoplasm"],
+    answer: "Plasma membrane",
+    solution: "The plasma membrane selectively allows materials to enter or leave the cell."
   },
   {
-    question: "Empirical formula of C₆H₁₂O₆ is:",
-    options: ["C₆H₁₂O₆", "CH₂O", "C₃H₆O₃", "CHO"],
-    answer: "CH₂O",
-    solution: "Divide all subscripts by 6: C₆H₁₂O₆ → CH₂O."
+    question: "Which of the following is a function of membrane proteins?",
+    options: ["DNA replication", "Protein synthesis", "Transport and signaling", "Cell division"],
+    answer: "Transport and signaling",
+    solution: "Membrane proteins help in transport of molecules and signal transduction."
   },
   {
-    question: "Which has maximum mass?",
-    options: ["1 mole of O₂", "1 mole of CO₂", "1 mole of SO₂", "1 mole of CH₄"],
-    answer: "1 mole of SO₂",
-    solution: "Compare molar masses: SO₂ = 64g > CO₂ = 44g > O₂ = 32g > CH₄ = 16g."
+    question: "Which type of transport requires ATP?",
+    options: ["Osmosis", "Facilitated diffusion", "Active transport", "Simple diffusion"],
+    answer: "Active transport",
+    solution: "Active transport moves molecules against the gradient and requires ATP."
   },
   {
-    question: "How many moles of electrons are in 1 coulomb of charge?",
-    options: ["1/96500", "96500", "1", "0.5"],
-    answer: "1/96500",
-    solution: "1 Faraday = 96500 C = 1 mole of electrons → 1 C = 1/96500 mol."
+    question: "What gives the cell membrane its fluidity?",
+    options: ["Proteins", "Lipids", "Cholesterol", "Carbohydrates"],
+    answer: "Lipids",
+    solution: "The phospholipid bilayer provides flexibility and fluid nature to the membrane."
   },
   {
-    question: "Which has greater number of particles: 2g H₂ or 32g O₂?",
-    options: ["2g H₂", "32g O₂", "Both same", "Cannot determine"],
-    answer: "2g H₂",
-    solution: "2g H₂ = 1 mol; 32g O₂ = 1 mol; But H₂ has 2 atoms/molecule → more atoms."
+    question: "Which part of the phospholipid is hydrophobic?",
+    options: ["Phosphate head", "Glycerol", "Fatty acid tails", "Carbohydrate chain"],
+    answer: "Fatty acid tails",
+    solution: "The nonpolar fatty acid tails face inward, away from water, making them hydrophobic."
   },
   {
-    question: "0.1 mole of Na contains how many atoms?",
-    options: ["6.022 × 10²²", "6.022 × 10²³", "3.011 × 10²²", "1.2 × 10²³"],
-    answer: "6.022 × 10²²",
-    solution: "0.1 × 6.022 × 10²³ = 6.022 × 10²² atoms."
+    question: "Which statement is true for eukaryotic DNA?",
+    options: ["It is circular", "It is in cytoplasm", "It is found in nucleus", "It lacks histones"],
+    answer: "It is found in nucleus",
+    solution: "Eukaryotic DNA is linear and located inside the membrane-bound nucleus."
   },
   {
-    question: "Mass of 0.25 mole of N₂ gas is:",
-    options: ["7 g", "14 g", "28 g", "3.5 g"],
-    answer: "7 g",
-    solution: "Molar mass = 28 g/mol → 0.25 × 28 = 7 g."
+    question: "Endocytosis is the process by which cells:",
+    options: ["Release waste", "Take in water", "Engulf materials", "Produce ATP"],
+    answer: "Engulf materials",
+    solution: "Endocytosis allows the cell to engulf external substances via vesicle formation."
   },
   {
-    question: "How many ions in 1 mole of NaCl in water?",
-    options: ["6.022 × 10²³", "1.204 × 10²⁴", "3.011 × 10²³", "None"],
-    answer: "1.204 × 10²⁴",
-    solution: "NaCl dissociates into Na⁺ and Cl⁻ → 2 ions × 6.022 × 10²³ = 1.204 × 10²⁴ ions."
+    question: "Which of the following structures is responsible for protein synthesis?",
+    options: ["Golgi body", "Ribosome", "Lysosome", "Mitochondrion"],
+    answer: "Ribosome",
+    solution: "Ribosomes are the site of translation, assembling amino acids into proteins."
   },
   {
-    question: "Volume of 0.1 mole of gas at STP is:",
-    options: ["2.24 L", "22.4 L", "1.12 L", "11.2 L"],
-    answer: "2.24 L",
-    solution: "0.1 × 22.4 = 2.24 L."
+    question: "Which membrane-bound organelle contains its own DNA?",
+    options: ["Lysosome", "Nucleus", "Mitochondria", "Golgi apparatus"],
+    answer: "Mitochondria",
+    solution: "Mitochondria have their own circular DNA and can self-replicate."
   },
   {
-    question: "Which has greater number of atoms: 16g O₂ or 4g H₂?",
-    options: ["O₂", "H₂", "Same", "None"],
-    answer: "H₂",
-    solution: "O₂: 0.5 mol = 1 mol of atoms; H₂: 2 mol = 4 mol atoms → H₂ has more."
+    question: "What is the main function of the lysosome?",
+    options: ["Energy production", "Protein synthesis", "Digestion of waste", "Transport of materials"],
+    answer: "Digestion of waste",
+    solution: "Lysosomes contain hydrolytic enzymes that break down cellular debris."
   },
   {
-    question: "1 mole of which compound contains 9 moles of atoms?",
-    options: ["H₂O", "CH₄", "H₂SO₄", "C₃H₈"],
-    answer: "C₃H₈",
-    solution: "C₃H₈ = 3C + 8H = 11 atoms per molecule → 11 mol atoms per mol."
+    question: "Which component gives structural support to eukaryotic cells?",
+    options: ["Cytosol", "Endoplasmic reticulum", "Cytoskeleton", "Nucleolus"],
+    answer: "Cytoskeleton",
+    solution: "The cytoskeleton is a network of protein filaments that maintains cell shape and aids movement."
   },
   {
-    question: "1 mole of Ca(NO₃)₂ contains how many oxygen atoms?",
-    options: ["3", "6", "12", "9"],
-    answer: "6",
-    solution: "Each NO₃⁻ = 3 oxygen atoms, 2 NO₃⁻ = 6 oxygen atoms per molecule."
+    question: "What is the function of glycoproteins on the plasma membrane?",
+    options: ["Energy storage", "Enzyme activity", "Cell recognition", "DNA synthesis"],
+    answer: "Cell recognition",
+    solution: "Glycoproteins act as markers for cell identity and immune response."
   }
 ];
 
