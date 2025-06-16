@@ -1,126 +1,127 @@
 import React, { useState, useEffect } from "react";
 const questions = [
   {
-    question: "What is a defining feature of eukaryotic cells?",
-    options: ["Lack of nucleus", "Presence of nucleus", "Circular DNA", "No membrane-bound organelles"],
-    answer: "Presence of nucleus",
-    solution: "Eukaryotic cells are characterized by a true nucleus enclosed within a nuclear membrane."
+    question: "Which of the following is a simple epithelium?",
+    options: ["Stratified squamous", "Transitional", "Simple columnar", "Stratified cuboidal"],
+    answer: "Simple columnar",
+    solution: "Simple columnar epithelium consists of a single layer of tall cells and is found in the intestine for absorption."
   },
   {
-    question: "Which of the following is not found in eukaryotic cells?",
-    options: ["Mitochondria", "Golgi apparatus", "Plasmid", "Endoplasmic reticulum"],
-    answer: "Plasmid",
-    solution: "Plasmids are typically found in prokaryotes, not eukaryotic cells."
+    question: "Where is stratified squamous epithelium found?",
+    options: ["Lining of kidney tubules", "Trachea", "Skin", "Lung alveoli"],
+    answer: "Skin",
+    solution: "Stratified squamous epithelium forms the outer layer of skin and protects against abrasion."
   },
   {
-    question: "Which organelle is known as the 'powerhouse of the cell'?",
-    options: ["Nucleus", "Ribosome", "Mitochondria", "Lysosome"],
-    answer: "Mitochondria",
-    solution: "Mitochondria generate most of the cell's ATP through respiration."
+    question: "What is the function of pseudostratified epithelium in the respiratory tract?",
+    options: ["Absorption", "Filtration", "Secretion and movement of mucus", "Storage"],
+    answer: "Secretion and movement of mucus",
+    solution: "Pseudostratified epithelium has cilia and secretes mucus, helping trap and move particles out of airways."
   },
   {
-    question: "The plasma membrane is primarily composed of:",
-    options: ["Proteins and sugars", "Phospholipids and proteins", "Carbohydrates and DNA", "Cholesterol and nucleic acids"],
-    answer: "Phospholipids and proteins",
-    solution: "The plasma membrane consists mainly of a phospholipid bilayer embedded with proteins."
+    question: "Which epithelial tissue is specialized for absorption in the intestines?",
+    options: ["Simple squamous", "Simple columnar", "Stratified cuboidal", "Transitional"],
+    answer: "Simple columnar",
+    solution: "Simple columnar epithelium in the intestines is specialized for nutrient absorption."
   },
   {
-    question: "Which molecule helps maintain fluidity of the cell membrane?",
-    options: ["Glucose", "Cholesterol", "DNA", "ATP"],
-    answer: "Cholesterol",
-    solution: "Cholesterol is interspersed within the membrane to prevent rigidity at low temperatures."
+    question: "What is the main role of transitional epithelium?",
+    options: ["Exchange of gases", "Filtration", "Stretching to accommodate volume", "Protection from UV light"],
+    answer: "Stretching to accommodate volume",
+    solution: "Transitional epithelium allows stretching, especially in the urinary bladder."
   },
   {
-    question: "Which organelle is responsible for packaging and modifying proteins?",
-    options: ["Nucleus", "Ribosome", "Golgi apparatus", "Mitochondria"],
-    answer: "Golgi apparatus",
-    solution: "The Golgi apparatus modifies, sorts, and packages proteins for secretion or use inside the cell."
+    question: "Which of the following is not a type of cell junction?",
+    options: ["Tight junction", "Adhering junction", "Gap junction", "Flex junction"],
+    answer: "Flex junction",
+    solution: "Flex junction is not a recognized type of cell junction; the others connect or communicate between cells."
   },
   {
-    question: "Which structure is found in plant cells but not in animal cells?",
-    options: ["Lysosomes", "Mitochondria", "Cell wall", "Ribosomes"],
-    answer: "Cell wall",
-    solution: "Plant cells have a rigid cell wall made of cellulose, absent in animal cells."
+    question: "Gap junctions allow:",
+    options: ["Strong adhesion", "Passage of ions and molecules", "Complete sealing", "Production of enzymes"],
+    answer: "Passage of ions and molecules",
+    solution: "Gap junctions allow direct chemical communication between adjacent cells."
   },
   {
-    question: "Which process allows oxygen to passively cross the plasma membrane?",
-    options: ["Osmosis", "Active transport", "Facilitated diffusion", "Simple diffusion"],
-    answer: "Simple diffusion",
-    solution: "Oxygen diffuses directly through the phospholipid bilayer down its concentration gradient."
+    question: "Which junction prevents leakage between epithelial cells?",
+    options: ["Adhering junction", "Gap junction", "Tight junction", "Desmosome"],
+    answer: "Tight junction",
+    solution: "Tight junctions seal cells together to prevent leakage of substances through the spaces between them."
   },
   {
-    question: "Which part of the cell is semi-permeable and controls entry and exit of substances?",
-    options: ["Nuclear membrane", "Cell wall", "Plasma membrane", "Cytoplasm"],
-    answer: "Plasma membrane",
-    solution: "The plasma membrane selectively allows materials to enter or leave the cell."
+    question: "What are the main components of connective tissue?",
+    options: ["Cells and plasma", "Plasma and proteins", "Cells, fibers, ground substance", "Only fibers"],
+    answer: "Cells, fibers, ground substance",
+    solution: "Connective tissue is composed of living cells, protein fibers, and a non-living ground substance."
   },
   {
-    question: "Which of the following is a function of membrane proteins?",
-    options: ["DNA replication", "Protein synthesis", "Transport and signaling", "Cell division"],
-    answer: "Transport and signaling",
-    solution: "Membrane proteins help in transport of molecules and signal transduction."
+    question: "Which of the following is not a connective tissue?",
+    options: ["Areolar tissue", "Blood", "Cartilage", "Cuboidal epithelium"],
+    answer: "Cuboidal epithelium",
+    solution: "Cuboidal epithelium is an epithelial tissue, not a connective tissue."
   },
   {
-    question: "Which type of transport requires ATP?",
-    options: ["Osmosis", "Facilitated diffusion", "Active transport", "Simple diffusion"],
-    answer: "Active transport",
-    solution: "Active transport moves molecules against the gradient and requires ATP."
+    question: "Which connective tissue connects muscles to bones?",
+    options: ["Ligament", "Tendon", "Cartilage", "Adipose"],
+    answer: "Tendon",
+    solution: "Tendons connect skeletal muscles to bones and are composed of dense regular connective tissue."
   },
   {
-    question: "What gives the cell membrane its fluidity?",
-    options: ["Proteins", "Lipids", "Cholesterol", "Carbohydrates"],
-    answer: "Lipids",
-    solution: "The phospholipid bilayer provides flexibility and fluid nature to the membrane."
+    question: "Which type of cartilage is found at the tip of the nose and trachea?",
+    options: ["Hyaline cartilage", "Elastic cartilage", "Fibrocartilage", "Calcified cartilage"],
+    answer: "Hyaline cartilage",
+    solution: "Hyaline cartilage is smooth and provides support at joints, nose, trachea, and larynx."
   },
   {
-    question: "Which part of the phospholipid is hydrophobic?",
-    options: ["Phosphate head", "Glycerol", "Fatty acid tails", "Carbohydrate chain"],
-    answer: "Fatty acid tails",
-    solution: "The nonpolar fatty acid tails face inward, away from water, making them hydrophobic."
+    question: "Where is elastic cartilage found?",
+    options: ["Knee joint", "Intervertebral disc", "Ear pinna", "Trachea"],
+    answer: "Ear pinna",
+    solution: "Elastic cartilage is flexible and present in the external ear and epiglottis."
   },
   {
-    question: "Which statement is true for eukaryotic DNA?",
-    options: ["It is circular", "It is in cytoplasm", "It is found in nucleus", "It lacks histones"],
-    answer: "It is found in nucleus",
-    solution: "Eukaryotic DNA is linear and located inside the membrane-bound nucleus."
+    question: "Which type of cartilage provides resistance to compression in intervertebral discs?",
+    options: ["Elastic cartilage", "Hyaline cartilage", "Fibrocartilage", "Osteoid"],
+    answer: "Fibrocartilage",
+    solution: "Fibrocartilage is tough and absorbs compressive shock in joints and intervertebral discs."
   },
   {
-    question: "Endocytosis is the process by which cells:",
-    options: ["Release waste", "Take in water", "Engulf materials", "Produce ATP"],
-    answer: "Engulf materials",
-    solution: "Endocytosis allows the cell to engulf external substances via vesicle formation."
+    question: "What happens when bone is treated with HCl?",
+    options: ["It becomes hard", "It dissolves", "Calcium salts dissolve and bone becomes soft", "It becomes brittle"],
+    answer: "Calcium salts dissolve and bone becomes soft",
+    solution: "HCl removes inorganic calcium salts, making the bone soft and flexible."
   },
   {
-    question: "Which of the following structures is responsible for protein synthesis?",
-    options: ["Golgi body", "Ribosome", "Lysosome", "Mitochondrion"],
-    answer: "Ribosome",
-    solution: "Ribosomes are the site of translation, assembling amino acids into proteins."
+    question: "What is the function of KOH treatment on bone?",
+    options: ["Dissolves calcium", "Removes organic material", "Stains bone red", "No effect"],
+    answer: "Removes organic material",
+    solution: "KOH digests the organic matrix (like collagen), leaving behind the brittle inorganic part."
   },
   {
-    question: "Which membrane-bound organelle contains its own DNA?",
-    options: ["Lysosome", "Nucleus", "Mitochondria", "Golgi apparatus"],
-    answer: "Mitochondria",
-    solution: "Mitochondria have their own circular DNA and can self-replicate."
+    question: "Which of the following is not a function of bone?",
+    options: ["Support", "Movement", "Hormone secretion", "Blood cell formation"],
+    answer: "Hormone secretion",
+    solution: "Bones support the body, enable movement, and produce blood cells, but don’t directly secrete hormones."
   },
   {
-    question: "What is the main function of the lysosome?",
-    options: ["Energy production", "Protein synthesis", "Digestion of waste", "Transport of materials"],
-    answer: "Digestion of waste",
-    solution: "Lysosomes contain hydrolytic enzymes that break down cellular debris."
+    question: "Which muscle is striated and voluntary?",
+    options: ["Smooth muscle", "Cardiac muscle", "Skeletal muscle", "Visceral muscle"],
+    answer: "Skeletal muscle",
+    solution: "Skeletal muscles are striated and under voluntary control, helping in body movements."
   },
   {
-    question: "Which component gives structural support to eukaryotic cells?",
-    options: ["Cytosol", "Endoplasmic reticulum", "Cytoskeleton", "Nucleolus"],
-    answer: "Cytoskeleton",
-    solution: "The cytoskeleton is a network of protein filaments that maintains cell shape and aids movement."
+    question: "Where is smooth muscle found?",
+    options: ["Heart", "Attached to bones", "Walls of hollow organs", "Skin"],
+    answer: "Walls of hollow organs",
+    solution: "Smooth muscles are non-striated and found in internal organs like the intestines, bladder, and uterus."
   },
   {
-    question: "What is the function of glycoproteins on the plasma membrane?",
-    options: ["Energy storage", "Enzyme activity", "Cell recognition", "DNA synthesis"],
-    answer: "Cell recognition",
-    solution: "Glycoproteins act as markers for cell identity and immune response."
+    question: "Cardiac muscle is unique because:",
+    options: ["It is involuntary and non-striated", "It has intercalated discs", "It is multinucleated", "It is found in lungs"],
+    answer: "It has intercalated discs",
+    solution: "Cardiac muscle has striations and special junctions called intercalated discs to allow coordinated contraction."
   }
 ];
+
 
 const QUESTION_VERSION = "chem1";
 const QUIZ_DURATION = 25 * 60; 
