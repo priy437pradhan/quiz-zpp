@@ -1,124 +1,125 @@
 import React, { useState, useEffect } from "react";
 const questions = [
+
   {
-    question: "Which of the following is a simple epithelium?",
-    options: ["Stratified squamous", "Transitional", "Simple columnar", "Stratified cuboidal"],
-    answer: "Simple columnar",
-    solution: "Simple columnar epithelium consists of a single layer of tall cells and is found in the intestine for absorption."
+    question: "This cell organelle is responsible for extracting energy from carbohydrates to form ATP.",
+    options: ["Lysosome", "Ribosome", "Chloroplast", "Mitochondrion"],
+    answer: "Mitochondrion",
+    solution: "Mitochondria convert energy from carbohydrates into ATP through cellular respiration." 
   },
   {
-    question: "Where is stratified squamous epithelium found?",
-    options: ["Lining of kidney tubules", "Trachea", "Skin", "Lung alveoli"],
-    answer: "Skin",
-    solution: "Stratified squamous epithelium forms the outer layer of skin and protects against abrasion."
+    question: "Pick the incorrect statement regarding bacteria (NEET – II 2016).",
+    options: ["Mycoplasma is a wall-less microorganism", "Pili and fimbriae are mainly involved in motility of bacterial cells", "The bacterial cell wall is made up of peptidoglycan", "Cyanobacteria lack flagellated cells"],
+    answer: "Pili and fimbriae are mainly involved in motility of bacterial cells",
+    solution: "Pili and fimbriae are primarily for adhesion, not motility." 
   },
   {
-    question: "What is the function of pseudostratified epithelium in the respiratory tract?",
-    options: ["Absorption", "Filtration", "Secretion and movement of mucus", "Storage"],
-    answer: "Secretion and movement of mucus",
-    solution: "Pseudostratified epithelium has cilia and secretes mucus, helping trap and move particles out of airways."
+    question: "As per the Fluid Mosaic model, plasma membrane is composed of:",
+    options: ["Phospholipids and integral proteins", "Phospholipids, extrinsic proteins, and intrinsic proteins", "Phospholipids and hemicellulose", "Phospholipids and oligosaccharides"],
+    answer: "Phospholipids, extrinsic proteins, and intrinsic proteins",
+    solution: "The fluid mosaic model includes phospholipids plus both intrinsic (integral) and extrinsic (peripheral) proteins." 
   },
   {
-    question: "Which epithelial tissue is specialized for absorption in the intestines?",
-    options: ["Simple squamous", "Simple columnar", "Stratified cuboidal", "Transitional"],
-    answer: "Simple columnar",
-    solution: "Simple columnar epithelium in the intestines is specialized for nutrient absorption."
+    question: "Pick the correct statement regarding the cell membrane (2012):",
+    options: ["Lipids are arranged in a bilayer with polar heads towards the inner part", "Na⁺ and K⁺ ions move across the cell membrane by passive transport", /* missing options omitted for brevity */],
+    answer: "Na⁺ and K⁺ ions move across the cell membrane by passive transport",
+    solution: "Certain ions can move passively via channels down their concentration gradients." 
   },
   {
-    question: "What is the main role of transitional epithelium?",
-    options: ["Exchange of gases", "Filtration", "Stretching to accommodate volume", "Protection from UV light"],
-    answer: "Stretching to accommodate volume",
-    solution: "Transitional epithelium allows stretching, especially in the urinary bladder."
+    question: "During Gram’s staining which statement is incorrect?",
+    options: ["All bacteria take crystal violet stain", "Gram + ves take crystal violet stain", "Only Gram – ves take crystal violet stain", "Gram – ves lose this stain after alcohol"],
+    answer: "Only Gram – ves take crystal violet stain",
+    solution: "Both Gram-positive and Gram-negative take crystal violet initially; Gram-negative lose it after decolourization." 
   },
   {
-    question: "Which of the following is not a type of cell junction?",
-    options: ["Tight junction", "Adhering junction", "Gap junction", "Flex junction"],
-    answer: "Flex junction",
-    solution: "Flex junction is not a recognized type of cell junction; the others connect or communicate between cells."
+    question: "Assertion–Reason (NEET 2025): Primary function of Golgi apparatus is to package materials from ER.",
+    options: ["A true, R true & correct explanation", "A true, R true but not correct explanation", "A true, R false", "A false, R true"],
+    answer: "A true, R true & correct explanation",
+    solution: "Golgi receives vesicles from ER at cis face, modifies them, and releases at trans face." 
   },
   {
-    question: "Gap junctions allow:",
-    options: ["Strong adhesion", "Passage of ions and molecules", "Complete sealing", "Production of enzymes"],
-    answer: "Passage of ions and molecules",
-    solution: "Gap junctions allow direct chemical communication between adjacent cells."
+    question: "From the statements: A) Eukaryotic ribosomes are 80S & prokaryotic are 70S. B) Each ribosome has two subunits. C) Subunits of 80S are 60S & 40S while 70S are 50S & 30S. D) Subunits of 80S are 60S & 20S and 70S are 50S & 20S.",
+    options: ["A, B, C correct", "A, B, D correct", "B, C correct", "C, D correct"],
+    answer: "A, B, C correct",
+    solution: "Eukaryotic ribosomes are 80S (60S+40S), prokaryotic are 70S (50S+30S)." 
   },
   {
-    question: "Which junction prevents leakage between epithelial cells?",
-    options: ["Adhering junction", "Gap junction", "Tight junction", "Desmosome"],
-    answer: "Tight junction",
-    solution: "Tight junctions seal cells together to prevent leakage of substances through the spaces between them."
+    question: "Which phase is quiescent (G₀) in the cell cycle? (NEET 2023)",
+    options: ["G₁ phase", "G₂ phase", "S phase", "Quiescent stage (G₀)"],
+    answer: "Quiescent stage (G₀)",
+    solution: "G₀ is a non-dividing, resting state outside of the active cell cycle." 
   },
   {
-    question: "What are the main components of connective tissue?",
-    options: ["Cells and plasma", "Plasma and proteins", "Cells, fibers, ground substance", "Only fibers"],
-    answer: "Cells, fibers, ground substance",
-    solution: "Connective tissue is composed of living cells, protein fibers, and a non-living ground substance."
+    question: "The stage in which recombination nodules appear is:",
+    options: ["Leptotene", "Zygotene", "Pachytene", "Diakinesis"],
+    answer: "Pachytene",
+    solution: "Recombination nodules form during pachytene and facilitate crossing‑over." 
   },
   {
-    question: "Which of the following is not a connective tissue?",
-    options: ["Areolar tissue", "Blood", "Cartilage", "Cuboidal epithelium"],
-    answer: "Cuboidal epithelium",
-    solution: "Cuboidal epithelium is an epithelial tissue, not a connective tissue."
+    question: "Synapsis occurs between:",
+    options: ["Male and female gamete", "mRNA and ribosomes", "Spindle fibres and centromere", "Two homologous chromosomes"],
+    answer: "Two homologous chromosomes",
+    solution: "Synapsis is the pairing of homologous chromosomes in prophase I of meiosis." 
   },
   {
-    question: "Which connective tissue connects muscles to bones?",
-    options: ["Ligament", "Tendon", "Cartilage", "Adipose"],
-    answer: "Tendon",
-    solution: "Tendons connect skeletal muscles to bones and are composed of dense regular connective tissue."
+    question: "Best stage to observe shape, size and number of chromosomes:",
+    options: ["Interphase", "Metaphase", "Prophase", "Telophase"],
+    answer: "Metaphase",
+    solution: "Chromosomes are most condensed and aligned at metaphase, ideal for counting." 
   },
   {
-    question: "Which type of cartilage is found at the tip of the nose and trachea?",
-    options: ["Hyaline cartilage", "Elastic cartilage", "Fibrocartilage", "Calcified cartilage"],
-    answer: "Hyaline cartilage",
-    solution: "Hyaline cartilage is smooth and provides support at joints, nose, trachea, and larynx."
+    question: "If a diploid cell is treated with colchicine, it becomes:",
+    options: ["Triploid", "Tetraploid", "Diploid", "Monoploid"],
+    answer: "Tetraploid",
+    solution: "Colchicine inhibits spindle formation, preventing separation – doubling the chromosome number." 
   },
   {
-    question: "Where is elastic cartilage found?",
-    options: ["Knee joint", "Intervertebral disc", "Ear pinna", "Trachea"],
-    answer: "Ear pinna",
-    solution: "Elastic cartilage is flexible and present in the external ear and epiglottis."
+    question: "During cell division, the spindle fibres attach to the chromosomes at a region called:",
+    options: ["Chromocentre", "Kinetochore", "Centriole", "Chromomere"],
+    answer: "Kinetochore",
+    solution: "Spindle fibres bind to kinetochores located on the centromere of each chromatid." 
   },
   {
-    question: "Which type of cartilage provides resistance to compression in intervertebral discs?",
-    options: ["Elastic cartilage", "Hyaline cartilage", "Fibrocartilage", "Osteoid"],
-    answer: "Fibrocartilage",
-    solution: "Fibrocartilage is tough and absorbs compressive shock in joints and intervertebral discs."
+    question: "What would be the number of chromosomes in aleurone cells of a plant with 42 chromosomes in root tip cells?",
+    options: ["21", "42", "63", "84"],
+    answer: "42",
+    solution: "Aleurone cells are somatic and thus diploid, same as root‑tip cells." 
   },
   {
-    question: "What happens when bone is treated with HCl?",
-    options: ["It becomes hard", "It dissolves", "Calcium salts dissolve and bone becomes soft", "It becomes brittle"],
-    answer: "Calcium salts dissolve and bone becomes soft",
-    solution: "HCl removes inorganic calcium salts, making the bone soft and flexible."
+    question: "Which stage precedes reformation of the nuclear envelope during M-phase?",
+    options: ["Decondensation of chromosomes and reassembly of nuclear lamina", "Transcription from chromosomes and lamina reassembly", "Formation of contractile ring and phragmoplast", "Contractile ring formation and transcription"],
+    answer: "Decondensation of chromosomes and reassembly of nuclear lamina",
+    solution: "Nuclear envelope reforms after chromosome decondensation and lamina assembly." 
   },
   {
-    question: "What is the function of KOH treatment on bone?",
-    options: ["Dissolves calcium", "Removes organic material", "Stains bone red", "No effect"],
-    answer: "Removes organic material",
-    solution: "KOH digests the organic matrix (like collagen), leaving behind the brittle inorganic part."
+    question: "During mitosis ER and nucleolus begin to disappear at:",
+    options: ["Late prophase", "Early metaphase", "Late metaphase", "Early prophase"],
+    answer: "Late prophase",
+    solution: "ER and nucleolus disintegrate during late prophase to allow chromosome segregation." 
   },
   {
-    question: "Which of the following is not a function of bone?",
-    options: ["Support", "Movement", "Hormone secretion", "Blood cell formation"],
-    answer: "Hormone secretion",
-    solution: "Bones support the body, enable movement, and produce blood cells, but don’t directly secrete hormones."
+    question: "In prokaryotes, where does DNA replication take place? (NEET 2023)",
+    options: ["Nucleus", "Nucleoid region", "Mitochondria", "Ribosome"],
+    answer: "Nucleoid region",
+    solution: "Prokaryotic DNA is located in the nucleoid, not within a membrane-bound nucleus." 
   },
   {
-    question: "Which muscle is striated and voluntary?",
-    options: ["Smooth muscle", "Cardiac muscle", "Skeletal muscle", "Visceral muscle"],
-    answer: "Skeletal muscle",
-    solution: "Skeletal muscles are striated and under voluntary control, helping in body movements."
+    question: "The centriole undergoes duplication during:",
+    options: ["G₁ phase", "S phase", "G₂ phase", "M phase"],
+    answer: "S phase",
+    solution: "Centrioles replicate parallel to DNA during the S phase of interphase." 
   },
   {
-    question: "Where is smooth muscle found?",
-    options: ["Heart", "Attached to bones", "Walls of hollow organs", "Skin"],
-    answer: "Walls of hollow organs",
-    solution: "Smooth muscles are non-striated and found in internal organs like the intestines, bladder, and uterus."
+    question: "Which of the following is TRUE regarding mitotic spindle formation? (NEET 2002)",
+    options: ["Spindle fiber is made of actin", "Spindle fiber is made of myosin", "Spindle fiber is made of tubulin", "Spindle fiber is made of collagen"],
+    answer: "Spindle fiber is made of tubulin",
+    solution: "Spindle fibers are microtubules composed of tubulin protein." 
   },
   {
-    question: "Cardiac muscle is unique because:",
-    options: ["It is involuntary and non-striated", "It has intercalated discs", "It is multinucleated", "It is found in lungs"],
-    answer: "It has intercalated discs",
-    solution: "Cardiac muscle has striations and special junctions called intercalated discs to allow coordinated contraction."
+    question: "Histone proteins are synthesized during which stage of cell cycle? (AIPMT 2005)",
+    options: ["G₁ phase", "S phase", "G₂ phase", "M phase"],
+    answer: "S phase",
+    solution: "Histones are synthesized during S phase to package newly replicated DNA." 
   }
 ];
 
