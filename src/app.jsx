@@ -1,127 +1,127 @@
 import React, { useState, useEffect } from "react";
 const questions = [
-
   {
-    question: "This cell organelle is responsible for extracting energy from carbohydrates to form ATP.",
-    options: ["Lysosome", "Ribosome", "Chloroplast", "Mitochondrion"],
-    answer: "Mitochondrion",
-    solution: "Mitochondria convert energy from carbohydrates into ATP through cellular respiration." 
+    question: "A car travels half the distance at 40 km/h and the remaining half at 60 km/h. What is the average speed?",
+    options: ["50 km/h", "48 km/h", "45 km/h", "60 km/h"],
+    answer: "48 km/h",
+    solution: "Average speed = 2xy / (x + y) = (2 × 40 × 60) / (40 + 60) = 4800 / 100 = 48 km/h"
   },
   {
-    question: "Pick the incorrect statement regarding bacteria (NEET – II 2016).",
-    options: ["Mycoplasma is a wall-less microorganism", "Pili and fimbriae are mainly involved in motility of bacterial cells", "The bacterial cell wall is made up of peptidoglycan", "Cyanobacteria lack flagellated cells"],
-    answer: "Pili and fimbriae are mainly involved in motility of bacterial cells",
-    solution: "Pili and fimbriae are primarily for adhesion, not motility." 
+    question: "A particle starts from rest, accelerates uniformly and then retards with the same magnitude. The displacement-time graph is:",
+    options: ["Straight line", "Parabolic, symmetric", "Triangular", "Sinusoidal"],
+    answer: "Parabolic, symmetric",
+    solution: "The graph is a symmetric parabola due to equal magnitude of acceleration and deceleration."
   },
   {
-    question: "As per the Fluid Mosaic model, plasma membrane is composed of:",
-    options: ["Phospholipids and integral proteins", "Phospholipids, extrinsic proteins, and intrinsic proteins", "Phospholipids and hemicellulose", "Phospholipids and oligosaccharides"],
-    answer: "Phospholipids, extrinsic proteins, and intrinsic proteins",
-    solution: "The fluid mosaic model includes phospholipids plus both intrinsic (integral) and extrinsic (peripheral) proteins." 
+    question: "Which of the following statements is incorrect regarding Gram staining?",
+    options: ["All bacteria initially take up crystal violet", "Gram-negative lose the violet stain after alcohol", "Only Gram-negative take up crystal violet", "Gram-positive retain crystal violet"],
+    answer: "Only Gram-negative take up crystal violet",
+    solution: "Both types initially take crystal violet; Gram-negative lose it after decolourization."
   },
   {
-    question: "Pick the correct statement regarding the cell membrane (2012):",
-    options: ["Lipids are arranged in a bilayer with polar heads towards the inner part", "Na⁺ and K⁺ ions move across the cell membrane by passive transport", /* missing options omitted for brevity */],
-    answer: "Na⁺ and K⁺ ions move across the cell membrane by passive transport",
-    solution: "Certain ions can move passively via channels down their concentration gradients." 
+    question: "In uniformly accelerated motion, the displacement in the nth second is given by:",
+    options: ["u + a(n−1)", "u + a(n−1)/2", "u + a(n−0.5)", "u + a/2(2n−1)"],
+    answer: "u + a/2(2n−1)",
+    solution: "Displacement in nth second = u + (a/2)(2n − 1)"
   },
   {
-    question: "During Gram’s staining which statement is incorrect?",
-    options: ["All bacteria take crystal violet stain", "Gram + ves take crystal violet stain", "Only Gram – ves take crystal violet stain", "Gram – ves lose this stain after alcohol"],
-    answer: "Only Gram – ves take crystal violet stain",
-    solution: "Both Gram-positive and Gram-negative take crystal violet initially; Gram-negative lose it after decolourization." 
+    question: "Velocity-time graph of a body is a straight line inclined to time axis. This indicates:",
+    options: ["Zero acceleration", "Non-uniform acceleration", "Uniform acceleration", "Increasing velocity at decreasing rate"],
+    answer: "Uniform acceleration",
+    solution: "A straight line in velocity-time graph implies constant acceleration."
   },
   {
-    question: "Assertion–Reason (NEET 2025): Primary function of Golgi apparatus is to package materials from ER.",
-    options: ["A true, R true & correct explanation", "A true, R true but not correct explanation", "A true, R false", "A false, R true"],
-    answer: "A true, R true & correct explanation",
-    solution: "Golgi receives vesicles from ER at cis face, modifies them, and releases at trans face." 
+    question: "Which graph is not physically possible in motion analysis?",
+    options: ["Velocity increases then drops suddenly", "Acceleration-time graph shows sudden spike", "Position-time graph is a closed loop", "Velocity-time graph is a straight line"],
+    answer: "Position-time graph is a closed loop",
+    solution: "Position-time graph cannot form a loop as time moves only forward."
   },
   {
-    question: "From the statements: A) Eukaryotic ribosomes are 80S & prokaryotic are 70S. B) Each ribosome has two subunits. C) Subunits of 80S are 60S & 40S while 70S are 50S & 30S. D) Subunits of 80S are 60S & 20S and 70S are 50S & 20S.",
-    options: ["A, B, C correct", "A, B, D correct", "B, C correct", "C, D correct"],
-    answer: "A, B, C correct",
-    solution: "Eukaryotic ribosomes are 80S (60S+40S), prokaryotic are 70S (50S+30S)." 
+    question: "If a body moves 10 m at 2 m/s, then another 10 m at 4 m/s, the average speed is:",
+    options: ["2.5 m/s", "3 m/s", "2.67 m/s", "4 m/s"],
+    answer: "2.67 m/s",
+    solution: "Average speed = total distance / total time = 20 / (10/2 + 10/4) = 20 / (5 + 2.5) = 20 / 7.5 = 2.67 m/s"
   },
   {
-    question: "Which phase is quiescent (G₀) in the cell cycle? (NEET 2023)",
-    options: ["G₁ phase", "G₂ phase", "S phase", "Quiescent stage (G₀)"],
-    answer: "Quiescent stage (G₀)",
-    solution: "G₀ is a non-dividing, resting state outside of the active cell cycle." 
+    question: "A ball is thrown up with speed u. The time to reach maximum height is:",
+    options: ["u/g", "u²/2g", "2u/g", "u/2g"],
+    answer: "u/g",
+    solution: "At maximum height, v = 0 ⇒ v = u - gt ⇒ 0 = u - gt ⇒ t = u/g"
   },
   {
-    question: "The stage in which recombination nodules appear is:",
-    options: ["Leptotene", "Zygotene", "Pachytene", "Diakinesis"],
-    answer: "Pachytene",
-    solution: "Recombination nodules form during pachytene and facilitate crossing‑over." 
+    question: "If v–t graph is a straight line with a negative slope, the acceleration is:",
+    options: ["Positive", "Negative", "Zero", "Infinity"],
+    answer: "Negative",
+    solution: "Slope of v–t graph gives acceleration; a downward slope implies negative acceleration."
   },
   {
-    question: "Synapsis occurs between:",
-    options: ["Male and female gamete", "mRNA and ribosomes", "Spindle fibres and centromere", "Two homologous chromosomes"],
-    answer: "Two homologous chromosomes",
-    solution: "Synapsis is the pairing of homologous chromosomes in prophase I of meiosis." 
+    question: "Area under v–t graph represents:",
+    options: ["Acceleration", "Displacement", "Speed", "Time"],
+    answer: "Displacement",
+    solution: "Area under velocity-time graph gives displacement."
   },
   {
-    question: "Best stage to observe shape, size and number of chromosomes:",
-    options: ["Interphase", "Metaphase", "Prophase", "Telophase"],
-    answer: "Metaphase",
-    solution: "Chromosomes are most condensed and aligned at metaphase, ideal for counting." 
+    question: "A car travels 20 s at 6 m/s, 20 s at 8 m/s, then 20 s at 10 m/s. What is average speed?",
+    options: ["8 m/s", "6 m/s", "9 m/s", "10 m/s"],
+    answer: "8 m/s",
+    solution: "Average speed = total distance / total time = (6+8+10)×20 / 60 = 480 / 60 = 8 m/s"
   },
   {
-    question: "If a diploid cell is treated with colchicine, it becomes:",
-    options: ["Triploid", "Tetraploid", "Diploid", "Monoploid"],
-    answer: "Tetraploid",
-    solution: "Colchicine inhibits spindle formation, preventing separation – doubling the chromosome number." 
+    question: "A body starts from rest and accelerates uniformly. The distance-time graph is:",
+    options: ["Linear", "Parabola", "Hyperbola", "Elliptical"],
+    answer: "Parabola",
+    solution: "For uniform acceleration: s = ut + (1/2)at² ⇒ s ∝ t² ⇒ Parabolic graph."
   },
   {
-    question: "During cell division, the spindle fibres attach to the chromosomes at a region called:",
-    options: ["Chromocentre", "Kinetochore", "Centriole", "Chromomere"],
-    answer: "Kinetochore",
-    solution: "Spindle fibres bind to kinetochores located on the centromere of each chromatid." 
+    question: "For a body thrown upwards, at highest point:",
+    options: ["Velocity = 0, Acceleration = 0", "Velocity ≠ 0, Acceleration = 0", "Velocity = 0, Acceleration = g", "Both zero"],
+    answer: "Velocity = 0, Acceleration = g",
+    solution: "At the highest point, velocity becomes 0, but acceleration remains g downward."
   },
   {
-    question: "What would be the number of chromosomes in aleurone cells of a plant with 42 chromosomes in root tip cells?",
-    options: ["21", "42", "63", "84"],
-    answer: "42",
-    solution: "Aleurone cells are somatic and thus diploid, same as root‑tip cells." 
+    question: "In free fall, the separation between successive drops:",
+    options: ["Remains constant", "Decreases", "Increases", "First increases then decreases"],
+    answer: "Increases",
+    solution: "Due to gravity, later drops fall faster, increasing separation."
   },
   {
-    question: "Which stage precedes reformation of the nuclear envelope during M-phase?",
-    options: ["Decondensation of chromosomes and reassembly of nuclear lamina", "Transcription from chromosomes and lamina reassembly", "Formation of contractile ring and phragmoplast", "Contractile ring formation and transcription"],
-    answer: "Decondensation of chromosomes and reassembly of nuclear lamina",
-    solution: "Nuclear envelope reforms after chromosome decondensation and lamina assembly." 
+    question: "A body is projected vertically upward with 40 m/s. It will strike ground after:",
+    options: ["4 s", "6 s", "8 s", "10 s"],
+    answer: "8 s",
+    solution: "Total time = 2u/g = 2×40/10 = 8 s"
   },
   {
-    question: "During mitosis ER and nucleolus begin to disappear at:",
-    options: ["Late prophase", "Early metaphase", "Late metaphase", "Early prophase"],
-    answer: "Late prophase",
-    solution: "ER and nucleolus disintegrate during late prophase to allow chromosome segregation." 
+    question: "If retardation in sand is such that a body stops after 1 m, its deceleration is (g = 10 m/s²):",
+    options: ["10 m/s²", "50 m/s²", "100 m/s²", "200 m/s²"],
+    answer: "100 m/s²",
+    solution: "Using v² = u² - 2as ⇒ 0 = u² - 2a(1) ⇒ a = u² / 2; for u = √200 ⇒ a = 100"
   },
   {
-    question: "In prokaryotes, where does DNA replication take place? (NEET 2023)",
-    options: ["Nucleus", "Nucleoid region", "Mitochondria", "Ribosome"],
-    answer: "Nucleoid region",
-    solution: "Prokaryotic DNA is located in the nucleoid, not within a membrane-bound nucleus." 
+    question: "Acceleration-time graph is a triangle from 0 to T. The velocity-time graph is:",
+    options: ["Parabola", "Trapezium", "Straight line then constant", "Straight line increasing then decreasing"],
+    answer: "Straight line increasing then decreasing",
+    solution: "Integral of acceleration gives velocity; triangle in a-t means linearly changing v."
   },
   {
-    question: "The centriole undergoes duplication during:",
-    options: ["G₁ phase", "S phase", "G₂ phase", "M phase"],
-    answer: "S phase",
-    solution: "Centrioles replicate parallel to DNA during the S phase of interphase." 
+    question: "In a graph where acceleration is constant and positive, the velocity-time graph will be:",
+    options: ["Curve", "Line parallel to time axis", "Straight line with positive slope", "Parabola"],
+    answer: "Straight line with positive slope",
+    solution: "Constant acceleration ⇒ velocity increases uniformly ⇒ straight line with positive slope."
   },
   {
-    question: "Which of the following is TRUE regarding mitotic spindle formation? (NEET 2002)",
-    options: ["Spindle fiber is made of actin", "Spindle fiber is made of myosin", "Spindle fiber is made of tubulin", "Spindle fiber is made of collagen"],
-    answer: "Spindle fiber is made of tubulin",
-    solution: "Spindle fibers are microtubules composed of tubulin protein." 
+    question: "The velocity-time graph of a uniformly retarded motion is:",
+    options: ["Line with positive slope", "Line with negative slope", "Horizontal line", "Curved line"],
+    answer: "Line with negative slope",
+    solution: "Negative acceleration (retardation) ⇒ decreasing velocity ⇒ straight line with negative slope."
   },
   {
-    question: "Histone proteins are synthesized during which stage of cell cycle? (AIPMT 2005)",
-    options: ["G₁ phase", "S phase", "G₂ phase", "M phase"],
-    answer: "S phase",
-    solution: "Histones are synthesized during S phase to package newly replicated DNA." 
+    question: "From the graph of velocity vs. time, acceleration is given by:",
+    options: ["Area under the graph", "Slope of the graph", "Intercept on time axis", "Intercept on velocity axis"],
+    answer: "Slope of the graph",
+    solution: "Acceleration = rate of change of velocity = slope of v–t graph."
   }
 ];
+
 
 
 const QUESTION_VERSION = "chem1";
