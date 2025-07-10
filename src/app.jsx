@@ -7,12 +7,6 @@ const questions = [
     solution: "Average speed = 2xy / (x + y) = (2 × 40 × 60) / (40 + 60) = 4800 / 100 = 48 km/h"
   },
   {
-    question: "A particle starts from rest, accelerates uniformly and then retards with the same magnitude. The displacement-time graph is:",
-    options: ["Straight line", "Parabolic, symmetric", "Triangular", "Sinusoidal"],
-    answer: "Parabolic, symmetric",
-    solution: "The graph is a symmetric parabola due to equal magnitude of acceleration and deceleration."
-  },
-  {
     question: "Which of the following statements is incorrect regarding Gram staining?",
     options: ["All bacteria initially take up crystal violet", "Gram-negative lose the violet stain after alcohol", "Only Gram-negative take up crystal violet", "Gram-positive retain crystal violet"],
     answer: "Only Gram-negative take up crystal violet",
@@ -23,18 +17,6 @@ const questions = [
     options: ["u + a(n−1)", "u + a(n−1)/2", "u + a(n−0.5)", "u + a/2(2n−1)"],
     answer: "u + a/2(2n−1)",
     solution: "Displacement in nth second = u + (a/2)(2n − 1)"
-  },
-  {
-    question: "Velocity-time graph of a body is a straight line inclined to time axis. This indicates:",
-    options: ["Zero acceleration", "Non-uniform acceleration", "Uniform acceleration", "Increasing velocity at decreasing rate"],
-    answer: "Uniform acceleration",
-    solution: "A straight line in velocity-time graph implies constant acceleration."
-  },
-  {
-    question: "Which graph is not physically possible in motion analysis?",
-    options: ["Velocity increases then drops suddenly", "Acceleration-time graph shows sudden spike", "Position-time graph is a closed loop", "Velocity-time graph is a straight line"],
-    answer: "Position-time graph is a closed loop",
-    solution: "Position-time graph cannot form a loop as time moves only forward."
   },
   {
     question: "If a body moves 10 m at 2 m/s, then another 10 m at 4 m/s, the average speed is:",
@@ -49,28 +31,10 @@ const questions = [
     solution: "At maximum height, v = 0 ⇒ v = u - gt ⇒ 0 = u - gt ⇒ t = u/g"
   },
   {
-    question: "If v–t graph is a straight line with a negative slope, the acceleration is:",
-    options: ["Positive", "Negative", "Zero", "Infinity"],
-    answer: "Negative",
-    solution: "Slope of v–t graph gives acceleration; a downward slope implies negative acceleration."
-  },
-  {
-    question: "Area under v–t graph represents:",
-    options: ["Acceleration", "Displacement", "Speed", "Time"],
-    answer: "Displacement",
-    solution: "Area under velocity-time graph gives displacement."
-  },
-  {
     question: "A car travels 20 s at 6 m/s, 20 s at 8 m/s, then 20 s at 10 m/s. What is average speed?",
     options: ["8 m/s", "6 m/s", "9 m/s", "10 m/s"],
     answer: "8 m/s",
     solution: "Average speed = total distance / total time = (6+8+10)×20 / 60 = 480 / 60 = 8 m/s"
-  },
-  {
-    question: "A body starts from rest and accelerates uniformly. The distance-time graph is:",
-    options: ["Linear", "Parabola", "Hyperbola", "Elliptical"],
-    answer: "Parabola",
-    solution: "For uniform acceleration: s = ut + (1/2)at² ⇒ s ∝ t² ⇒ Parabolic graph."
   },
   {
     question: "For a body thrown upwards, at highest point:",
@@ -96,31 +60,68 @@ const questions = [
     answer: "100 m/s²",
     solution: "Using v² = u² - 2as ⇒ 0 = u² - 2a(1) ⇒ a = u² / 2; for u = √200 ⇒ a = 100"
   },
-  {
-    question: "Acceleration-time graph is a triangle from 0 to T. The velocity-time graph is:",
-    options: ["Parabola", "Trapezium", "Straight line then constant", "Straight line increasing then decreasing"],
-    answer: "Straight line increasing then decreasing",
-    solution: "Integral of acceleration gives velocity; triangle in a-t means linearly changing v."
+    {
+    question: "A train travels the first 30 km at 30 km/h and the next 70 km at 70 km/h. What is the average speed?",
+    options: ["50 km/h", "55 km/h", "60 km/h", "65 km/h"],
+    answer: "58.33 km/h",
+    solution: "Total time = 30/30 + 70/70 = 1 + 1 = 2 hr. Total distance = 100 km. Avg speed = 100 / 2 = 50 km/h"
   },
   {
-    question: "In a graph where acceleration is constant and positive, the velocity-time graph will be:",
-    options: ["Curve", "Line parallel to time axis", "Straight line with positive slope", "Parabola"],
-    answer: "Straight line with positive slope",
-    solution: "Constant acceleration ⇒ velocity increases uniformly ⇒ straight line with positive slope."
+    question: "A body travels 1st half of time with speed 20 m/s and 2nd half with 30 m/s. Average speed?",
+    options: ["24 m/s", "25 m/s", "26 m/s", "27 m/s"],
+    answer: "25 m/s",
+    solution: "Average speed = (20 + 30) / 2 = 25 m/s (when time is equally divided)"
   },
   {
-    question: "The velocity-time graph of a uniformly retarded motion is:",
-    options: ["Line with positive slope", "Line with negative slope", "Horizontal line", "Curved line"],
-    answer: "Line with negative slope",
-    solution: "Negative acceleration (retardation) ⇒ decreasing velocity ⇒ straight line with negative slope."
+    question: "A ball is dropped from 80 m height. Time to reach ground (g = 10 m/s²)?",
+    options: ["3 s", "4 s", "5 s", "6 s"],
+    answer: "4 s",
+    solution: "Using h = 1/2gt² ⇒ 80 = 5t² ⇒ t² = 16 ⇒ t = 4 s"
   },
   {
-    question: "From the graph of velocity vs. time, acceleration is given by:",
-    options: ["Area under the graph", "Slope of the graph", "Intercept on time axis", "Intercept on velocity axis"],
-    answer: "Slope of the graph",
-    solution: "Acceleration = rate of change of velocity = slope of v–t graph."
+    question: "If a car accelerates from 10 m/s to 30 m/s in 5 s, what is acceleration?",
+    options: ["2 m/s²", "4 m/s²", "5 m/s²", "6 m/s²"],
+    answer: "4 m/s²",
+    solution: "a = (v - u) / t = (30 - 10) / 5 = 4 m/s²"
+  },
+  {
+    question: "A stone is thrown vertically with 20 m/s. Height at 1.5 s? (g = 10 m/s²)",
+    options: ["15 m", "22.5 m", "25 m", "30 m"],
+    answer: "22.5 m",
+    solution: "h = ut - 1/2gt² = 20×1.5 - 5×(1.5)² = 30 - 11.25 = 18.75 m"
+  },
+  {
+    question: "A body under uniform acceleration travels 100 m in 5 s, starting from rest. Find a.",
+    options: ["4 m/s²", "5 m/s²", "6 m/s²", "8 m/s²"],
+    answer: "8 m/s²",
+    solution: "s = 1/2at² ⇒ 100 = 0.5×a×25 ⇒ a = 200 / 25 = 8 m/s²"
+  },
+  {
+    question: "If v = u + at and s = ut + 1/2at², eliminate a to get relation between s, u, v, and t.",
+    options: ["s = (u+v)t/2", "s = v² - u²", "s = ut", "s = vt + 1/2at²"],
+    answer: "s = (u+v)t/2",
+    solution: "Using 1st and 2nd equations, eliminating a gives s = (u+v)t/2"
+  },
+  {
+    question: "A body thrown up reaches max height in 3 s. Total time of flight?",
+    options: ["3 s", "4 s", "6 s", "9 s"],
+    answer: "6 s",
+    solution: "Time to reach ground = 2 × time to max height = 2 × 3 = 6 s"
+  },
+  {
+    question: "A particle moves with uniform acceleration and covers 80 m in 4 s, final velocity is 25 m/s. Find initial velocity.",
+    options: ["5 m/s", "10 m/s", "15 m/s", "20 m/s"],
+    answer: "15 m/s",
+    solution: "s = (u + v)t/2 ⇒ 80 = (u + 25)×4 / 2 ⇒ 80 = 2(u + 25) ⇒ u + 25 = 40 ⇒ u = 15 m/s"
+  },
+  {
+    question: "A vehicle slows from 25 m/s to rest in 5 s. Distance covered?",
+    options: ["25 m", "62.5 m", "75 m", "100 m"],
+    answer: "62.5 m",
+    solution: "s = (u + v)t/2 = (25 + 0)×5/2 = 125/2 = 62.5 m"
   }
 ];
+
 
 
 
