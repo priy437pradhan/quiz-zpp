@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-const dimensionQuestions = [
+const questions = [
   {
     question: "Which of the following has the same dimensional formula as energy?",
     options: ["Force × Distance", "Pressure × Volume", "Power × Time", "All of these"],
