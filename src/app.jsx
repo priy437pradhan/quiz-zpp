@@ -1,146 +1,127 @@
 import React, { useState, useEffect } from "react";
-const questions = [
+const dimensionQuestions = [
   {
-    question: "Lecithin, a small molecular weight organic compound found in living tissues, is an example of:",
-    options: ["Amino acid", "Phospholipid", "Glyceride", "Carbohydrate"],
-    answer: "Phospholipid",
-    solution: "Lecithin is a phospholipid, containing glycerol, fatty acids, phosphoric acid and choline." // NEET 2024 :contentReference[oaicite:1]{index=1}
+    question: "Which of the following has the same dimensional formula as energy?",
+    options: ["Force × Distance", "Pressure × Volume", "Power × Time", "All of these"],
+    answer: "All of these",
+    solution: "Energy has dimensional formula [ML²T⁻²]; all listed combinations result in the same."
   },
   {
-    question: "The cofactor of the enzyme carboxypeptidase is:",
-    options: ["Zinc", "Niacin", "Flavin", "Haem"],
-    answer: "Zinc",
-    solution: "Carboxypeptidase is a metalloenzyme that utilizes Zn²⁺ as a cofactor." // NEET 2024 :contentReference[oaicite:2]{index=2}
+    question: "Dimensional formula of Planck's constant (h) is:",
+    options: ["[ML²T⁻²]", "[ML²T⁻¹]", "[MLT⁻²]", "[MLT⁻¹]"],
+    answer: "[ML²T⁻¹]",
+    solution: "E = hν ⇒ h = E/ν ⇒ [ML²T⁻²]/[T⁻¹] = [ML²T⁻¹]"
   },
   {
-    question: "Inhibition of succinic dehydrogenase by malonate is an example of:",
-    options: ["Cofactor inhibition", "Feedback inhibition", "Competitive inhibition", "Enzyme activation"],
-    answer: "Competitive inhibition",
-    solution: "Malonate structurally resembles succinate and competes for the enzyme’s active site." // NEET 2024 :contentReference[oaicite:3]{index=3}
+    question: "Which of the following is dimensionless?",
+    options: ["Reynolds number", "Strain", "Poisson's ratio", "All of these"],
+    answer: "All of these",
+    solution: "All these quantities are ratios of similar physical quantities, hence dimensionless."
   },
   {
-    question: "Which reagents does glucose NOT react with?",
-    options: ["Tollen's reagent & HCN", "Schiff's reagent & NaHSO₃", "Tollen's reagent & Schiff's reagent", "HCN & hydroxylamine"],
-    answer: "Schiff's reagent & NaHSO₃",
-    solution: "Glucose doesn’t give positive with Schiff’s reagent or bisulfite due to predominant cyclic form." // NEET 2024 :contentReference[oaicite:4]{index=4}
+    question: "Dimensional formula of gravitational constant G is:",
+    options: ["[M⁻¹L³T⁻²]", "[ML⁻¹T⁻²]", "[M⁻¹L²T²]", "[M⁻²L³T⁻²]"],
+    answer: "[M⁻¹L³T⁻²]",
+    solution: "From F = Gm₁m₂/r² ⇒ G = Fr²/m₁m₂ ⇒ [MLT⁻²][L²]/[M²] = [M⁻¹L³T⁻²]"
   },
   {
-    question: "During enzyme catalytic cycle, the correct sequence is:",
-    options: [
-      "Substrate binds → complex forms → bonds broken → products released → enzyme free",
-      "Complex forms → substrate binds → bonds broken → products released → enzyme free",
-      "Substrate binds → bonds broken → complex forms → products released → enzyme free",
-      "Complex forms → bonds broken → substrate binds → products released → enzyme free"
-    ],
-    answer: "Substrate binds → complex forms → bonds broken → products released → enzyme free",
-    solution: "Catalysis: E + S → ES → EP → E + P." // NEET 2024 :contentReference[oaicite:5]{index=5}
+    question: "The dimensional formula of pressure is:",
+    options: ["[ML⁻¹T⁻²]", "[ML²T⁻²]", "[ML⁰T⁻²]", "[M⁻¹LT⁻²]"],
+    answer: "[ML⁻¹T⁻²]",
+    solution: "Pressure = Force/Area ⇒ [MLT⁻²]/[L²] = [ML⁻¹T⁻²]"
   },
   {
-    question: "Which of following describes enzymes that remove groups leaving double bonds?",
-    options: ["Transferases", "Oxidoreductases", "Dehydrogenases", "Lyases"],
-    answer: "Lyases",
-    solution: "Lyases catalyze group removal by mechanisms other than hydrolysis, generating double bonds." // NEET 2024 :contentReference[oaicite:6]{index=6}
+    question: "What is the dimension of impulse?",
+    options: ["[MLT⁻¹]", "[ML²T⁻²]", "[MLT⁻²]", "[ML²T⁻¹]"],
+    answer: "[MLT⁻¹]",
+    solution: "Impulse = Force × Time = [MLT⁻²] × [T] = [MLT⁻¹]"
   },
   {
-    question: "Which of the following is a nucleotide?",
-    options: ["Uridine", "Adenylic acid", "Guanine", "Guanosine"],
-    answer: "Adenylic acid",
-    solution: "Adenylic acid (AMP) has base + sugar + phosphate; others lack phosphate." // NEET 2024 :contentReference[oaicite:7]{index=7}
+    question: "Which physical quantity has dimension [ML²T⁻³]?",
+    options: ["Energy", "Power", "Pressure", "None of these"],
+    answer: "Power",
+    solution: "Power = Energy/Time ⇒ [ML²T⁻²]/[T] = [ML²T⁻³]"
   },
   {
-    question: "Which graph best shows effect of substrate concentration on enzyme velocity?",
-    options: ["Hyperbolic curve (Michaelis–Menten)", "Linear", "Sigmoidal", "Parabolic"],
-    answer: "Hyperbolic curve (Michaelis–Menten)",
-    solution: "Enzyme kinetics follows Michaelis–Menten hyperbolic saturation curve." // NEET 2024 :contentReference[oaicite:8]{index=8}
+    question: "The dimensional formula of surface tension is:",
+    options: ["[MT⁻²]", "[ML⁰T⁻²]", "[ML⁻¹T⁻²]", "[MLT⁻²]"],
+    answer: "[MT⁻²]",
+    solution: "Surface tension = Force / Length ⇒ [MLT⁻²]/[L] = [MT⁻²]"
   },
   {
-    question: "Which one of the following is a non‑reducing sugar?",
-    options: ["Maltose", "Sucrose", "Lactose", "Ribose‑5‑phosphate"],
-    answer: "Sucrose",
-    solution: "Sucrose has no free hemiacetal group, so it is non‑reducing." // NEET 2014‑21 :contentReference[oaicite:9]{index=9}
+    question: "Which of the following pairs have the same dimensional formula?",
+    options: ["Work and Torque", "Force and Pressure", "Impulse and Momentum", "Power and Energy"],
+    answer: "Impulse and Momentum",
+    solution: "Impulse = Force × Time = [MLT⁻¹]; Momentum = mv = [MLT⁻¹]"
   },
   {
-    question: "Cellulose is made of:",
-    options: [
-      "Unbranched α‑1,4 linked glucose",
-      "Unbranched β‑1,4 linked glucose",
-      "Branched α‑1,4 and α‑1,6",
-      "Branched β‑1,4 and β‑1,6"
-    ],
-    answer: "Unbranched β‑1,4 linked glucose",
-    solution: "Cellulose is an unbranched polymer of β‑1,4 linked glucose." // AIPMT 1998 :contentReference[oaicite:10]{index=10}
+    question: "Dimension of angular momentum is:",
+    options: ["[ML²T⁻¹]", "[MLT⁻²]", "[ML²T⁻²]", "[MLT⁻¹]"],
+    answer: "[ML²T⁻¹]",
+    solution: "L = mvr ⇒ [M][LT⁻¹][L] = [ML²T⁻¹]"
   },
   {
-    question: "Conjugated proteins containing carbohydrates as prosthetic group are called:",
-    options: ["Lipoproteins", "Nucleoproteins", "Glycoproteins", "Chromoproteins"],
-    answer: "Glycoproteins",
-    solution: "Proteins with carbohydrate moiety are glycoproteins." // AIPMT 2000 :contentReference[oaicite:11]{index=11}
+    question: "Dimensional formula of modulus of elasticity is same as that of:",
+    options: ["Stress", "Strain", "Pressure", "Both Stress and Pressure"],
+    answer: "Both Stress and Pressure",
+    solution: "All have dimensions of Force per unit area ⇒ [ML⁻¹T⁻²]"
   },
   {
-    question: "Which amino acid is essential in human diet?",
-    options: ["Glycine", "Phenylalanine", "Serine", "Aspartic acid"],
-    answer: "Phenylalanine",
-    solution: "Phenylalanine is an essential aromatic amino acid." // AIPMT 2000 :contentReference[oaicite:12]{index=12}
+    question: "Which physical quantity has dimension [ML⁰T⁻²]?",
+    options: ["Surface tension", "Stress", "Tension", "Strain"],
+    answer: "Surface tension",
+    solution: "Surface tension = Force / Length = [MLT⁻²]/[L] = [ML⁰T⁻²]"
   },
   {
-    question: "Most abundant organic compound on Earth is:",
-    options: ["Protein", "Cellulose", "Lipids", "Steroids"],
-    answer: "Cellulose",
-    solution: "Cellulose is the most abundant organic polymer on Earth." // AIPMT 2001 :contentReference[oaicite:13]{index=13}
+    question: "Which physical quantity has the dimension [L²]?",
+    options: ["Area", "Volume", "Velocity", "Density"],
+    answer: "Area",
+    solution: "Area is a two-dimensional quantity, so dimension is [L²]"
   },
   {
-    question: "Which structure represents peptide chain backbone bonding?",
-    options: ["–CO–NH–", "–CO–CO–", "–NH–NH–", "–CH–CH–"],
-    answer: "–CO–NH–",
-    solution: "Peptide backbone is linked via amide bonds –CO–NH–." // NEET Past-year :contentReference[oaicite:14]{index=14}
+    question: "Which physical quantity has dimensions [ML²T⁻²]?",
+    options: ["Kinetic energy", "Force", "Momentum", "Velocity"],
+    answer: "Kinetic energy",
+    solution: "K.E = ½mv² ⇒ [M][L²T⁻²] = [ML²T⁻²]"
   },
   {
-    question: "On hydrolysis of starch, the end product is:",
-    options: ["Glucose", "Fructose", "Maltose", "Both glucose & maltose"],
-    answer: "Both glucose & maltose",
-    solution: "Starch hydrolysis yields maltose and eventually glucose." // NEET Past-year :contentReference[oaicite:15]{index=15}
+    question: "Which of the following has dimension [M⁰L⁰T⁰]?",
+    options: ["Angle", "Solid angle", "Refractive index", "All of these"],
+    answer: "All of these",
+    solution: "They are all dimensionless quantities."
   },
   {
-    question: "Base pairing in DNA involves hydrogen bonding between:",
-    options: ["A–T, G–C", "A–G, T–C", "G–T, A–C", "A–A, T–T"],
-    answer: "A–T, G–C",
-    solution: "DNA has A–T (2 H‑bonds) and G–C (3 H‑bonds) base pairs." // NEET Past-year :contentReference[oaicite:16]{index=16}
+    question: "Which has the same dimension as momentum?",
+    options: ["Impulse", "Angular momentum", "Force", "None"],
+    answer: "Impulse",
+    solution: "Impulse = Force × Time ⇒ [MLT⁻²][T] = [MLT⁻¹] = Momentum"
   },
   {
-    question: "α‑D‑glucose and β‑D‑glucose are:",
-    options: ["Anomers", "Epimers", "Enantiomers", "Geometrical isomers"],
-    answer: "Anomers",
-    solution: "They differ at the anomeric carbon (C‑1) configuration." // NEET Past-year :contentReference[oaicite:17]{index=17}
+    question: "Dimensional formula of velocity gradient is:",
+    options: ["[T⁻¹]", "[LT⁻¹]", "[MLT⁻²]", "[L²T⁻²]"],
+    answer: "[T⁻¹]",
+    solution: "Velocity gradient = velocity / distance ⇒ [LT⁻¹]/[L] = [T⁻¹]"
   },
   {
-    question: "Phospholipids are esters of glycerol with:",
-    options: [
-      "1 fatty acid + 2 phosphates",
-      "3 phosphates",
-      "3 fatty acids",
-      "2 fatty acids + 1 phosphate"
-    ],
-    answer: "2 fatty acids + 1 phosphate",
-    solution: "Phospholipids have two fatty acids and a phosphate group esterified to glycerol." // NEET Past-year :contentReference[oaicite:18]{index=18}
+    question: "Dimension of universal gas constant R is:",
+    options: ["[ML²T⁻²K⁻¹mol⁻¹]", "[MLT⁻²K⁻¹mol⁻¹]", "[ML²T⁻²K⁻¹]", "[ML²T⁻¹K⁻¹]"],
+    answer: "[ML²T⁻²K⁻¹mol⁻¹]",
+    solution: "R = PV/nT ⇒ [ML⁻¹T⁻²][L³]/[mol][K] = [ML²T⁻²K⁻¹mol⁻¹]"
   },
   {
-    question: "Proteins are hydrolyzed to amino acids by:",
-    options: [
-      "Amylase & maltase",
-      "Diastase & lipase",
-      "Protease & peptidase",
-      "Lipase & nuclease"
-    ],
-    answer: "Protease & peptidase",
-    solution: "Proteases digest proteins into amino acids and small peptides." // NEET Past-year :contentReference[oaicite:19]{index=19}
+    question: "Which quantity has dimension [ML⁻³]?",
+    options: ["Density", "Pressure", "Energy density", "None"],
+    answer: "Density",
+    solution: "Density = mass/volume ⇒ [M]/[L³] = [ML⁻³]"
   },
   {
-    question: "DNA strands are held together by:",
-    options: ["Hydrogen bonds", "Ionic bonds", "Covalent bonds", "Van der Waals forces"],
-    answer: "Hydrogen bonds",
-    solution: "Complementary base-pairing is stabilized by hydrogen bonding." // NEET Past-year :contentReference[oaicite:20]{index=20}
+    question: "Dimension of coefficient of viscosity is:",
+    options: ["[ML⁻¹T⁻¹]", "[MLT⁻¹]", "[ML⁻²T⁻²]", "[ML⁻¹T⁻²]"],
+    answer: "[ML⁻¹T⁻¹]",
+    solution: "From F = ηA (dv/dx) ⇒ η = [Force × distance / Area × velocity] = [ML⁻¹T⁻¹]"
   }
 ];
+
 
 
 
