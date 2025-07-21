@@ -1,128 +1,226 @@
 import React, { useState, useEffect } from "react";
 const questions = [
   {
-    question: "Which of the following has the same dimensional formula as energy?",
-    options: ["Force × Distance", "Pressure × Volume", "Power × Time", "All of these"],
+    question: "1 mole of any substance contains:",
+    options: [
+      "6.022 × 10²³ particles",
+      "1 gram of atoms",
+      "Atomic number of atoms",
+      "None of these"
+    ],
+    answer: "6.022 × 10²³ particles",
+    solution: "1 mole = Avogadro’s number of particles = 6.022 × 10²³"
+  },
+  {
+    question: "Which of the following has the same number of molecules as 1 mole of O₂?",
+    options: [
+      "32 g O₂",
+      "28 g N₂",
+      "44 g CO₂",
+      "All of these"
+    ],
     answer: "All of these",
-    solution: "Energy has dimensional formula [ML²T⁻²]; all listed combinations result in the same."
+    solution: "Each has 1 mole → all have 6.022 × 10²³ molecules"
   },
   {
-    question: "Dimensional formula of Planck's constant (h) is:",
-    options: ["[ML²T⁻²]", "[ML²T⁻¹]", "[MLT⁻²]", "[MLT⁻¹]"],
-    answer: "[ML²T⁻¹]",
-    solution: "E = hν ⇒ h = E/ν ⇒ [ML²T⁻²]/[T⁻¹] = [ML²T⁻¹]"
+    question: "Molar mass of water is:",
+    options: [
+      "16 g/mol",
+      "18 g/mol",
+      "10 g/mol",
+      "2 g/mol"
+    ],
+    answer: "18 g/mol",
+    solution: "H₂O → 2(1) + 16 = 18 g/mol"
   },
   {
-    question: "Which of the following is dimensionless?",
-    options: ["Reynolds number", "Strain", "Poisson's ratio", "All of these"],
-    answer: "All of these",
-    solution: "All these quantities are ratios of similar physical quantities, hence dimensionless."
+    question: "Volume occupied by 1 mole of an ideal gas at STP is:",
+    options: [
+      "22.4 L",
+      "24.0 L",
+      "20.0 L",
+      "25.0 L"
+    ],
+    answer: "22.4 L",
+    solution: "At STP (0°C, 1 atm), 1 mol gas = 22.4 L"
   },
   {
-    question: "Dimensional formula of gravitational constant G is:",
-    options: ["[M⁻¹L³T⁻²]", "[ML⁻¹T⁻²]", "[M⁻¹L²T²]", "[M⁻²L³T⁻²]"],
-    answer: "[M⁻¹L³T⁻²]",
-    solution: "From F = Gm₁m₂/r² ⇒ G = Fr²/m₁m₂ ⇒ [MLT⁻²][L²]/[M²] = [M⁻¹L³T⁻²]"
+    question: "Number of atoms in 1 mole of methane (CH₄) is:",
+    options: [
+      "6.022 × 10²³",
+      "5 × 6.022 × 10²³",
+      "2 × 6.022 × 10²³",
+      "10 × 6.022 × 10²³"
+    ],
+    answer: "5 × 6.022 × 10²³",
+    solution: "CH₄ contains 5 atoms per molecule → 1 mol = 5 × Avogadro's number"
   },
   {
-    question: "The dimensional formula of pressure is:",
-    options: ["[ML⁻¹T⁻²]", "[ML²T⁻²]", "[ML⁰T⁻²]", "[M⁻¹LT⁻²]"],
-    answer: "[ML⁻¹T⁻²]",
-    solution: "Pressure = Force/Area ⇒ [MLT⁻²]/[L²] = [ML⁻¹T⁻²]"
+    question: "Number of moles in 88 g of CO₂ is:",
+    options: [
+      "2 mol",
+      "1 mol",
+      "0.5 mol",
+      "4 mol"
+    ],
+    answer: "2 mol",
+    solution: "Moles = mass / molar mass = 88 / 44 = 2 mol"
   },
   {
-    question: "What is the dimension of impulse?",
-    options: ["[MLT⁻¹]", "[ML²T⁻²]", "[MLT⁻²]", "[ML²T⁻¹]"],
-    answer: "[MLT⁻¹]",
-    solution: "Impulse = Force × Time = [MLT⁻²] × [T] = [MLT⁻¹]"
+    question: "Which of the following contains 3 moles of oxygen atoms?",
+    options: [
+      "1 mol H₂O",
+      "1.5 mol O₂",
+      "1 mol CO₂",
+      "1 mol O₃"
+    ],
+    answer: "1.5 mol O₂",
+    solution: "1 mol O₂ = 2 O atoms → 1.5 mol = 3 mol atoms"
   },
   {
-    question: "Which physical quantity has dimension [ML²T⁻³]?",
-    options: ["Energy", "Power", "Pressure", "None of these"],
-    answer: "Power",
-    solution: "Power = Energy/Time ⇒ [ML²T⁻²]/[T] = [ML²T⁻³]"
+    question: "What is the mass of 0.5 mol of NaCl (M = 58.5 g/mol)?",
+    options: [
+      "29.25 g",
+      "58.5 g",
+      "117 g",
+      "23 g"
+    ],
+    answer: "29.25 g",
+    solution: "Mass = mol × molar mass = 0.5 × 58.5 = 29.25 g"
   },
   {
-    question: "The dimensional formula of surface tension is:",
-    options: ["[MT⁻²]", "[ML⁰T⁻²]", "[ML⁻¹T⁻²]", "[MLT⁻²]"],
-    answer: "[MT⁻²]",
-    solution: "Surface tension = Force / Length ⇒ [MLT⁻²]/[L] = [MT⁻²]"
+    question: "Which of the following represents the largest number of particles?",
+    options: [
+      "1 mol CO₂",
+      "1 mol O₂",
+      "1 mol H₂O",
+      "All have same number"
+    ],
+    answer: "All have same number",
+    solution: "All represent 1 mole → same number of molecules"
   },
   {
-    question: "Which of the following pairs have the same dimensional formula?",
-    options: ["Work and Torque", "Force and Pressure", "Impulse and Momentum", "Power and Energy"],
-    answer: "Impulse and Momentum",
-    solution: "Impulse = Force × Time = [MLT⁻¹]; Momentum = mv = [MLT⁻¹]"
+    question: "Molar mass of Ca(OH)₂ is:",
+    options: [
+      "56 g/mol",
+      "74 g/mol",
+      "40 g/mol",
+      "100 g/mol"
+    ],
+    answer: "74 g/mol",
+    solution: "Ca = 40, O = 16×2, H = 1×2 → Total = 74 g/mol"
   },
   {
-    question: "Dimension of angular momentum is:",
-    options: ["[ML²T⁻¹]", "[MLT⁻²]", "[ML²T⁻²]", "[MLT⁻¹]"],
-    answer: "[ML²T⁻¹]",
-    solution: "L = mvr ⇒ [M][LT⁻¹][L] = [ML²T⁻¹]"
+    question: "Number of moles in 18 g of H₂O is:",
+    options: [
+      "1 mol",
+      "2 mol",
+      "0.5 mol",
+      "18 mol"
+    ],
+    answer: "1 mol",
+    solution: "Moles = 18 / 18 = 1 mol"
   },
   {
-    question: "Dimensional formula of modulus of elasticity is same as that of:",
-    options: ["Stress", "Strain", "Pressure", "Both Stress and Pressure"],
-    answer: "Both Stress and Pressure",
-    solution: "All have dimensions of Force per unit area ⇒ [ML⁻¹T⁻²]"
+    question: "Which has the greatest number of atoms?",
+    options: [
+      "1 mol CH₄",
+      "1 mol CO₂",
+      "1 mol H₂",
+      "1 mol NH₃"
+    ],
+    answer: "1 mol CH₄",
+    solution: "CH₄ has 5 atoms/molecule → 5 × 6.022 × 10²³ atoms"
   },
   {
-    question: "Which physical quantity has dimension [ML⁰T⁻²]?",
-    options: ["Surface tension", "Stress", "Tension", "Strain"],
-    answer: "Surface tension",
-    solution: "Surface tension = Force / Length = [MLT⁻²]/[L] = [ML⁰T⁻²]"
+    question: "Number of molecules in 11.2 L of CO₂ at STP is:",
+    options: [
+      "3.011 × 10²³",
+      "6.022 × 10²³",
+      "1.204 × 10²⁴",
+      "None"
+    ],
+    answer: "3.011 × 10²³",
+    solution: "11.2 L = 0.5 mol → 0.5 × Avogadro’s number"
   },
   {
-    question: "Which physical quantity has the dimension [L²]?",
-    options: ["Area", "Volume", "Velocity", "Density"],
-    answer: "Area",
-    solution: "Area is a two-dimensional quantity, so dimension is [L²]"
+    question: "Mass of 1 atom of carbon-12 is:",
+    options: [
+      "12 g",
+      "1.9926 × 10⁻²³ g",
+      "1.0 g",
+      "6.022 × 10²³ g"
+    ],
+    answer: "1.9926 × 10⁻²³ g",
+    solution: "12 g / 6.022×10²³ = 1.9926 × 10⁻²³ g"
   },
   {
-    question: "Which physical quantity has dimensions [ML²T⁻²]?",
-    options: ["Kinetic energy", "Force", "Momentum", "Velocity"],
-    answer: "Kinetic energy",
-    solution: "K.E = ½mv² ⇒ [M][L²T⁻²] = [ML²T⁻²]"
+    question: "1 mole of electrons has a charge of:",
+    options: [
+      "1 C",
+      "6.022 C",
+      "96500 C",
+      "None"
+    ],
+    answer: "96500 C",
+    solution: "Charge = 1 F (Faraday) = 96500 C/mol of e⁻"
   },
   {
-    question: "Which of the following has dimension [M⁰L⁰T⁰]?",
-    options: ["Angle", "Solid angle", "Refractive index", "All of these"],
-    answer: "All of these",
-    solution: "They are all dimensionless quantities."
+    question: "Which of the following is NOT equal to a mole?",
+    options: [
+      "22.4 L of N₂ at STP",
+      "6.022 × 10²³ atoms of H",
+      "32 g of O₂",
+      "1 g of H₂"
+    ],
+    answer: "1 g of H₂",
+    solution: "1 mol H₂ = 2 g; 1 g is 0.5 mol"
   },
   {
-    question: "Which has the same dimension as momentum?",
-    options: ["Impulse", "Angular momentum", "Force", "None"],
-    answer: "Impulse",
-    solution: "Impulse = Force × Time ⇒ [MLT⁻²][T] = [MLT⁻¹] = Momentum"
+    question: "Empirical formula of a compound is CH₂. Its molecular mass is 56. What is its molecular formula?",
+    options: [
+      "C₂H₄",
+      "C₃H₆",
+      "C₄H₈",
+      "C₅H₁₀"
+    ],
+    answer: "C₄H₈",
+    solution: "Empirical mass = 14; 56 / 14 = 4 → C₄H₈"
   },
   {
-    question: "Dimensional formula of velocity gradient is:",
-    options: ["[T⁻¹]", "[LT⁻¹]", "[MLT⁻²]", "[L²T⁻²]"],
-    answer: "[T⁻¹]",
-    solution: "Velocity gradient = velocity / distance ⇒ [LT⁻¹]/[L] = [T⁻¹]"
+    question: "Which of the following has highest number of moles?",
+    options: [
+      "1 g H₂",
+      "16 g O₂",
+      "44 g CO₂",
+      "18 g H₂O"
+    ],
+    answer: "1 g H₂",
+    solution: "1 g / 2 = 0.5 mol (more than O₂, H₂O)"
   },
   {
-    question: "Dimension of universal gas constant R is:",
-    options: ["[ML²T⁻²K⁻¹mol⁻¹]", "[MLT⁻²K⁻¹mol⁻¹]", "[ML²T⁻²K⁻¹]", "[ML²T⁻¹K⁻¹]"],
-    answer: "[ML²T⁻²K⁻¹mol⁻¹]",
-    solution: "R = PV/nT ⇒ [ML⁻¹T⁻²][L³]/[mol][K] = [ML²T⁻²K⁻¹mol⁻¹]"
+    question: "How many atoms are there in 0.25 mol of aluminum (Al)?",
+    options: [
+      "1.506 × 10²³",
+      "6.022 × 10²³",
+      "3.011 × 10²³",
+      "1.204 × 10²³"
+    ],
+    answer: "1.506 × 10²³",
+    solution: "0.25 × 6.022 × 10²³ = 1.506 × 10²³"
   },
   {
-    question: "Which quantity has dimension [ML⁻³]?",
-    options: ["Density", "Pressure", "Energy density", "None"],
-    answer: "Density",
-    solution: "Density = mass/volume ⇒ [M]/[L³] = [ML⁻³]"
-  },
-  {
-    question: "Dimension of coefficient of viscosity is:",
-    options: ["[ML⁻¹T⁻¹]", "[MLT⁻¹]", "[ML⁻²T⁻²]", "[ML⁻¹T⁻²]"],
-    answer: "[ML⁻¹T⁻¹]",
-    solution: "From F = ηA (dv/dx) ⇒ η = [Force × distance / Area × velocity] = [ML⁻¹T⁻¹]"
+    question: "Gram molecular volume of a gas at STP is:",
+    options: [
+      "22.4 L",
+      "44.8 L",
+      "11.2 L",
+      "None"
+    ],
+    answer: "22.4 L",
+    solution: "1 mole of any gas at STP = 22.4 L"
   }
 ];
-
-
 
 
 
